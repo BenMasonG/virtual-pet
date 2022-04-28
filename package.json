@@ -1,0 +1,18 @@
+{
+  "name": "virtual-pet",
+  "version": "1.0.0",
+  "description": "A project to create a virtual pet",
+  "main": "virtual-pet.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "virtual-pet"
+  },
+  "author": "Benjamin Mason-Gallagher",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^28.0.2"
+  }
+}
