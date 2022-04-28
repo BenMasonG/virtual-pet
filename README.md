@@ -1,0 +1,1 @@
+This is a project to create a virtual pet that be interacted with using the console. The pet will age, get hungry and become less fit as time passes. The user will be able to feed the pet, exercise the pet and interact with it to discover it's needs.
