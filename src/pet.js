@@ -1,6 +1,9 @@
 
 const MAXIMUM_FITNESS = 10
+const MINIMUM_FITNESS = 0
+const MAXIMUM_HUNGER = 10
 const MINIMUM_HUNGER = 0
+const MAXIMUM_AGE = 30
 
 function Pet(name) {
     this.name = name;
@@ -56,13 +59,13 @@ Pet.prototype.checkUp = function () {
 }
 
 Pet.prototype.checkHealth = function () {
-    if (this.fitness <= 0) {
+    if (this.fitness <= MINIMUM_FITNESS) {
         this.isAlive = false;
         return `Sorry, ${this.name} has died due to poor fitness.`
-    } else if (this.hunger >= 10) {
+    } else if (this.hunger >= MAXIMUM_HUNGER) {
         this.isAlive = false;
         return `Sorry, ${this.name} has starved to death.`
-    } else if (this.age >= 30) {
+    } else if (this.age >= MAXIMUM_AGE) {
         this.isAlive = false;
         return `Sorry, ${this.name} has died of old age.`
     }
