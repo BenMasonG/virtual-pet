@@ -7,33 +7,45 @@ function Pet(name) {
     this.age = 0;
     this.hunger = 0;
     this.fitness = 10;
+    this.isAlive = true;
 };
 
 
 Pet.prototype.growUp = function () {
+    if (this.isAlive === false) {
+        return `Sorry, ${this.name} can't grow up as they are dead.`
+    } else
     this.age += 1;
     this.hunger += 5;
     this.fitness -= 3;
-}
+    return this.checkHealth()
+    };
+
 
 Pet. prototype.walk = function () {
-    if (this.fitness + 4 <= MAXIMUM_FITNESS) {
+    if (this.isAlive === false) {
+        return `Sorry, ${this.name} can't go for a walk as they are dead.`
+    } else if (this.fitness + 4 <= MAXIMUM_FITNESS) {
         this.fitness += 4;
     } else {
         this.fitness = MAXIMUM_FITNESS;
     }
-}
+};
 
 Pet.prototype.feed = function () {
-    if (this.hunger - 3 >= MINIMUM_HUNGER) {
+    if (this.isAlive === false) {
+        return `Sorry, ${this.name} can't be fed as they are dead.`
+    } else if (this.hunger - 3 >= MINIMUM_HUNGER) {
         this.hunger -= 3;
     } else {
         this.hunger = MINIMUM_HUNGER;
     }
-}
+};
 
 Pet.prototype.checkUp = function () {
-    if (this.fitness <= 3 && this.hunger >= 5) {
+    if (this.isAlive === false) {
+        return `Sorry, ${this.name} is dead.`
+    } else if (this.fitness <= 3 && this.hunger >= 5) {
         return 'I am hungry and I need a walk.'
     } else if (this.fitness <= 3) {
         return 'I need a walk.'
@@ -42,5 +54,22 @@ Pet.prototype.checkUp = function () {
     } else 
     return 'I feel great!'
 }
+
+Pet.prototype.checkHealth = function () {
+    if (this.fitness <= 0) {
+        this.isAlive = false;
+        return `Sorry, ${this.name} has died due to poor fitness.`
+    } else if (this.hunger >= 10) {
+        this.isAlive = false;
+        return `Sorry, ${this.name} has starved to death.`
+    } else if (this.age >= 30) {
+        this.isAlive = false;
+        return `Sorry, ${this.name} has died of old age.`
+    }
+    this.isAlive = true;
+    return `${this.name} has gotten a year older! Remember to keep them well fed and exercised to ensure they stay healthy.`
+};
+
+
 
 module.exports = Pet;

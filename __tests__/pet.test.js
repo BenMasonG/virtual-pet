@@ -115,3 +115,37 @@ describe('constructor', () => {
     
   });
 });
+
+describe('constructor', () => {
+  it('tests that the checkHeath function tests if the Pet is alive', () => {
+    const pet = new Pet ('Bugs')
+    expect(pet.checkHealth()).toEqual(`${pet.name} has gotten a year older! Remember to keep them well fed and exercised to ensure they stay healthy.`);
+  });
+});
+
+describe('constructor', () => {
+  it('tests that the checkHeath function correctly identfies if the pet dies of stavation', () => {
+    const pet = new Pet ('Bugs')
+    pet.hunger = 10
+
+    expect(pet.checkHealth()).toEqual(`Sorry, ${pet.name} has starved to death.`);
+  });
+});
+
+describe('constructor', () => {
+  it('tests that the checkHeath function correctly identfies if the pet dies of old age', () => {
+    const pet = new Pet ('Bugs')
+    pet.age = 31
+
+    expect(pet.checkHealth()).toEqual(`Sorry, ${pet.name} has died of old age.`);
+  });
+});
+
+describe('constructor', () => {
+  it('tests that the checkHeath function correctly identfies if the pet dies due to poor fitness', () => {
+    const pet = new Pet ('Bugs')
+    pet.fitness = 0
+
+    expect(pet.checkHealth()).toEqual(`Sorry, ${pet.name} has died due to poor fitness.`);
+  });
+});
