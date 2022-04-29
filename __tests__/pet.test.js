@@ -85,3 +85,16 @@ describe('constructor', () => {
     expect(pet.fitness).toBe(10);
   });
 });
+
+describe('constructor', () => {
+  it('tests that when the feed function is called on a pet it\'s hunger decreases by 3 without ever dropping below 0', () => {
+    const pet = new Pet ('Bugs')
+    pet.hunger = 5
+
+    pet.feed()
+    expect(pet.hunger).toBe(2);
+    
+    pet.feed()
+    expect(pet.hunger).toBe(0);
+  });
+});
