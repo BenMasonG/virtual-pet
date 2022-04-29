@@ -98,3 +98,20 @@ describe('constructor', () => {
     expect(pet.hunger).toBe(0);
   });
 });
+
+describe('constructor', () => {
+  it('tests that when checkUp is called the pet provides the correct response based on their current fitness & hunger levels', () => {
+    const pet = new Pet ('Bugs')
+    expect(pet.checkUp()).toEqual('I feel great!');
+
+    pet.fitness = 2
+    expect(pet.checkUp()).toEqual('I need a walk.');
+
+    pet.hunger = 5
+    expect(pet.checkUp()).toEqual('I am hungry and I need a walk.');
+
+    pet.fitness = 10
+    expect(pet.checkUp()).toEqual('I am hungry.');
+    
+  });
+});
