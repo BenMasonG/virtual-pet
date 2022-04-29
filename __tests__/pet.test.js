@@ -34,3 +34,41 @@ describe('constructor', () => {
     expect(pet.age).toBe(2);
   });
 });
+
+describe('constructor', () => {
+  it('tests that when a new pet is created it has a fitness of 10', () => {
+    const pet = new Pet ('Bugs')
+
+    expect(pet.fitness).toEqual(10);
+  });
+});
+
+describe('constructor', () => {
+  it('tests that when the growUp function is called on a pet it\'s fitness decreases by 3', () => {
+    const pet = new Pet ('Bugs')
+    pet.growUp()
+    expect(pet.fitness).toBe(7);
+
+    pet.growUp()
+    expect(pet.fitness).toBe(4);
+  });
+});
+
+describe('constructor', () => {
+  it('tests that when a new pet is created it has a hunger of 0', () => {
+    const pet = new Pet ('Bugs')
+
+    expect(pet.hunger).toEqual(0);
+  });
+});
+
+describe('constructor', () => {
+  it('tests that when the growUp function is called on a pet it\'s hunger increases by 5', () => {
+    const pet = new Pet ('Bugs')
+    pet.growUp()
+    expect(pet.hunger).toBe(5);
+
+    pet.growUp()
+    expect(pet.hunger).toBe(10);
+  });
+});
