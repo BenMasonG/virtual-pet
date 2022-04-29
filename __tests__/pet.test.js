@@ -72,3 +72,16 @@ describe('constructor', () => {
     expect(pet.hunger).toBe(10);
   });
 });
+
+describe('constructor', () => {
+  it('tests that when the walk function is called on a pet it\'s fitness increases by 4 without ever exceeding a fitness of 10', () => {
+    const pet = new Pet ('Bugs')
+    pet.fitness = 4
+
+    pet.walk()
+    expect(pet.fitness).toBe(8);
+    
+    pet.walk()
+    expect(pet.fitness).toBe(10);
+  });
+});
