@@ -14,14 +14,21 @@ function Pet(name) {
     this.children = [];
 };
 
-function Child(name) {
+function Child (name) {
     Pet.call(this)
 
     this.name = name;
-}
+};
+
+Child.prototype = Object.create(Pet.prototype);
 
 Pet.prototype.adoptChild = function (name) {
     const child = new Pet (name)
+    this.children.push(child)
+};
+
+Pet.prototype.adoptChild2 = function (name) {
+    const child = new Child (name)
     this.children.push(child)
 };
 
