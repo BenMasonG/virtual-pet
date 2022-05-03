@@ -11,8 +11,21 @@ function Pet(name) {
     this.hunger = 0;
     this.fitness = 10;
     this.isAlive = true;
+    this.children = [];
 };
 
+function Child(name) {
+    Pet.call(this)
+
+    this.name = name;
+}
+
+Child.prototype = Object.create(Pet.prototype)
+
+Pet.prototype.adoptChild = function (name) {
+    const child = new Child (name)
+    this.children.push(child)
+};
 
 Pet.prototype.growUp = function () {
     if (this.isAlive === false) {
@@ -72,6 +85,7 @@ Pet.prototype.checkHealth = function () {
     this.isAlive = true;
     return `${this.name} has gotten a year older! Remember to keep them well fed and exercised to ensure they stay healthy.`
 };
+
 
 
 
