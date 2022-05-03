@@ -171,3 +171,13 @@ describe('constructor', () => {
     expect(pet.children[0].fitness).toEqual(7);
   });
 });
+
+describe('constructor', () => {
+  it('tests that the Pets children can have children', () => {
+    const pet = new Pet ('Bugs')
+    pet.adoptChild('Jr')
+    pet.children[0].adoptChild('test')
+  
+    expect(pet.children[0].children[0]).toEqual({name: 'test', age: 0, hunger: 0, fitness: 10, isAlive: true, children: []});
+  });
+});
