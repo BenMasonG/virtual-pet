@@ -20,10 +20,8 @@ function Child(name) {
     this.name = name;
 }
 
-Child.prototype = Object.create(Pet.prototype)
-
 Pet.prototype.adoptChild = function (name) {
-    const child = new Child (name)
+    const child = new Pet (name)
     this.children.push(child)
 };
 

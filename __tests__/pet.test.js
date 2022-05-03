@@ -149,3 +149,25 @@ describe('constructor', () => {
     expect(pet.checkHealth()).toEqual(`Sorry, ${pet.name} has died due to poor fitness.`);
   });
 });
+
+describe('constructor', () => {
+  it('tests that the adoptChild function allows the Pet to have a child', () => {
+    const pet = new Pet ('Bugs')
+    pet.adoptChild('Jr')
+    pet.adoptChild('Matt')
+  
+    expect(pet.children[0]).toEqual({name: 'Jr', age: 0, hunger: 0, fitness: 10, isAlive: true, children: []});
+    expect(pet.children[1]).toEqual({name: 'Matt', age: 0, hunger: 0, fitness: 10, isAlive: true, children: []});
+  });
+});
+
+describe('constructor', () => {
+  it('tests that methods can be called on the children of Pets', () => {
+    const pet = new Pet ('Bugs')
+    pet.adoptChild('Jr')
+    pet.children[0].growUp()
+  
+    expect(pet.children[0].hunger).toEqual(5);
+    expect(pet.children[0].fitness).toEqual(7);
+  });
+});
